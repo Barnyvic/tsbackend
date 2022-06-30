@@ -7,7 +7,11 @@ const Port = 5000;
 // Initializing express and router
 const app = express();
 app.use(router);
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
