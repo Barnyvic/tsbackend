@@ -14,6 +14,9 @@ app.use(
 );
 
 // Middleware
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
