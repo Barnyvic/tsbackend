@@ -1,10 +1,8 @@
 import { Data } from "../../Data";
-import { ICars } from "../interface/Icar";
-import { AccoutCars } from "../interface/Account_cars";
 
 // get all cars
 const getCars = (req: any, res: any) => {
-  const allCars = Data.Cars.map((car: ICars) => {
+  const allCars = Data.Cars.map((car) => {
     return {
       Id: car._id,
       NameofCar: car.Name,
@@ -23,7 +21,7 @@ const getCars = (req: any, res: any) => {
 
 // Find the top speed cars
 const topSpeedCars = (req: any, res: any) => {
-  const topSpeedCars = Data.Cars.sort((a: ICars, b: ICars) => {
+  const topSpeedCars = Data.Cars.sort((a, b) => {
     return b.Acceleration - a.Acceleration;
   }).slice(0, 5);
   res.send(topSpeedCars).status(200);
@@ -31,14 +29,14 @@ const topSpeedCars = (req: any, res: any) => {
 
 // adding a new car to the database
 const addCar = (req: any, res: any) => {
-  const car: ICars = req.body;
-  Data.Cars.push(car);
+  const car = req.body;
+  Data.Cars.push(...Data.Cars, car);
   res.send("Car added").status(200);
 };
 
 // filter cars by Horsepower
 const filterCars = (req: any, res: any) => {
-  const cars = Data.Cars.filter((car: ICars) => car.Horsepower > 185);
+  const cars = Data.Cars.filter((car) => car.Horsepower > 185);
   if (cars) {
     res.send(cars).status(200);
   } else {
@@ -48,7 +46,7 @@ const filterCars = (req: any, res: any) => {
 
 // finding a particular car
 const findCar = (req: any, res: any) => {
-  const car = Data.Cars.find((car: ICars) => car._id === Number(req.params.id));
+  const car = Data.Cars.find((car) => car._id === Number(req.params.id));
   if (car) {
     res.send(car).status(200);
   } else {
@@ -58,7 +56,7 @@ const findCar = (req: any, res: any) => {
 
 // Updating a car
 const updateCar = (req: any, res: any) => {
-  const car = Data.Cars.find((car: ICars) => car._id === Number(req.params.id));
+  const car = Data.Cars.find((car) => car._id === Number(req.params.id));
   if (car) {
     car.Name = req.body.Name;
     car.Miles_per_Gallon = req.body.Miles_per_Gallon;
@@ -77,7 +75,7 @@ const updateCar = (req: any, res: any) => {
 
 // deleting a car
 const deleteCar = (req: any, res: any) => {
-  const car = Data.Cars.find((car: ICars) => car._id === Number(req.params.id));
+  const car = Data.Cars.find((car) => car._id === Number(req.params.id));
   if (car) {
     Data.Cars.splice(Data.Cars.indexOf(car, 0), 1); // remove the car from the array
     res.send("Car deleted").status(200);
@@ -86,4 +84,12 @@ const deleteCar = (req: any, res: any) => {
   }
 };
 
-export { getCars, findCar, filterCars, topSpeedCars, deleteCar, addCar };
+export {
+  getCars,
+  findCar,
+  filterCars,
+  topSpeedCars,
+  deleteCar,
+  addCar,
+  updateCar,
+};
