@@ -1,7 +1,7 @@
 export const Data = {
   Accounts: [
     {
-      _id: "0",
+      _id: 0,
       name: {
         first: "Deidre",
         last: "Hayes",
@@ -11,7 +11,7 @@ export const Data = {
       address: "507 Church Avenue, Heil, Wyoming, 1754",
     },
     {
-      _id: "1",
+      _id: 1,
       name: {
         first: "Maldonado",
         last: "Sellers",
@@ -21,7 +21,7 @@ export const Data = {
       address: "286 Hewes Street, Abiquiu, Maine, 2447",
     },
     {
-      _id: "2",
+      _id: 2,
       name: {
         first: "Elvia",
         last: "Aguilar",
@@ -31,7 +31,7 @@ export const Data = {
       address: "457 Buffalo Avenue, Caberfae, Connecticut, 2648",
     },
     {
-      _id: "3",
+      _id: 3,
       name: {
         first: "Chris",
         last: "Mullins",
@@ -41,7 +41,7 @@ export const Data = {
       address: "642 Vandalia Avenue, Driftwood, California, 213",
     },
     {
-      _id: "4",
+      _id: 4,
       name: {
         first: "Vargas",
         last: "Oneal",

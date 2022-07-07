@@ -1,4 +1,5 @@
 import express from "express";
+const router = express.Router();
 import {
   getCars,
   findCar,
@@ -14,8 +15,6 @@ import {
   CreateAccount,
   deleteAccount,
 } from "../controllers/Account-Cars.controllers";
-
-const router = express.Router();
 
 // routes for cars
 router.route("/").get(getCars).post(addCar);
